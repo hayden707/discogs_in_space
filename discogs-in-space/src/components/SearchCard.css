@@ -1,0 +1,17 @@
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2em;
+}
+
+.album-card {
+  margin: 1em;
+}
+
+img {
+  height: 4em;
+}
+
+p {
+  font-size: 0.5em;
+}
