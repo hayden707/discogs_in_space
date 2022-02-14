@@ -1,0 +1,9 @@
+.search-component {
+  background-image: url('https://i.imgur.com/3ZspymB.jpg');
+  background-size: contain;
+  height: 100vh;
+  width: 100%;
+}
+a {
+  color: white;
+}
