@@ -4,15 +4,17 @@ import './SearchCard.css'
 
 function ReleaseCard(props) {
   return (
-    <div className="search-card-component">
+    <div className="release-card">
       {props.releases.map((album) => (
         <div key={album.id} className="album-card">
           {/* <img src={album.cover_image} alt={`${album.title} cover`} /> */}
           {/* <p>Type: {album.type}</p> */}
-          <h3>{album.title}</h3>
-          <h4>{album.label}</h4>
-          <p>{album.format}</p>
-          <p>{album.year}</p>
+          <NavLink to={`/release/${album.id}`}>
+            <h3>{album.title}</h3>
+            <h4>{album.label}</h4>
+            <p>{album.format}</p>
+            <p>{album.year}</p>
+          </NavLink>
         </div>
       ))}
     </div>
