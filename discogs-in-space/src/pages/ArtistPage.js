@@ -13,7 +13,12 @@ function ArtistPage(props) {
   useEffect(async () => {
     async function findReleases() {
       const res = await axios.get(
-        `https://api.discogs.com/artists/${artist_id}/releases`
+        `https://api.discogs.com/artists/${artist_id}/releases`,
+        {
+          headers: {
+            Authorization: `Discogs token=${process.env.REACT_APP_TOKEN}`
+          }
+        }
       )
       setReleases(res.data.releases)
       console.log(res.data.releases, 'releases')

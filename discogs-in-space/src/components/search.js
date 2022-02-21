@@ -13,7 +13,7 @@ function Search() {
     e.preventDefault()
     setEmptySearch(false)
     const res = await axios.get(
-      `https://api.discogs.com/database/search?type=artist&q=${search}&?artist&key=${process.env.REACT_APP_KEY}&secret=${process.env.REACT_APP_SECRET}`
+      `https://api.discogs.com/database/search?type=artist&q=${search}&?artist&token=${process.env.REACT_APP_TOKEN}`
     )
     setSearchResults(res.data.results)
     console.log(res.data.results)
@@ -34,7 +34,7 @@ function Search() {
               onChange={(e) => setSearch(e.target.value)}
             ></input>
             <button>Search</button>
-            <p>Search by ARTIS NAME</p>
+            <p>Search by ARTIST NAME</p>
           </form>
         </div>
       ) : (

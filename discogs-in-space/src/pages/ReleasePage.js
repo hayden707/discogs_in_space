@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect } from 'react'
-import SingleReleaseCard from '../components/SingleReleaseCard'
 import './ReleasePage.css'
 
 function ReleasePage(props) {
@@ -11,53 +10,49 @@ function ReleasePage(props) {
   const [video, setVideo] = useState(null)
   const [hasVideo, setHasVideo] = useState(false)
   const [hasRelease, setHasRelease] = useState(false)
+  const [Tracklist, setTracklist] = useState([])
 
   const { release_id } = useParams()
 
   useEffect(async () => {
     async function findRelease() {
       const res = await axios.get(
-        `https://api.discogs.com/releases/${release_id}`
+        `https://api.discogs.com/releases/${release_id}`,
+        {
+          headers: {
+            Authorization: `Discogs token=${process.env.REACT_APP_TOKEN}`
+          }
+        }
       )
       setRelease(res.data)
       console.log(res.data, 'releases')
       setVideo(res.data.videos)
       setHasVideo(true)
       setHasRelease(true)
-      // replaceUri(video.uri)
-      // setVideo(video.uri)
-      // console.logI
+      setTracklist(res.data.tracklist)
     }
     findRelease()
-    // const releases = await FindReleases(artist_id)
-    // setReleases(releases.data)
   }, [])
-
-  // const replaceUri = (url) => {
-  //   let newUrl = url.replace(/watch/g, 'embed')
-  //   setVideo(newUrl)
-  // }
-
-  // const getArtist = async (artist_id) => {
-  //   const res = await axios.get(
-  //     `https://api.discogs.com/artists/${artist_id}/releases`
-  //   )
-  //   setReleases(res.data.results)
-  //   console.log(res.data.results)
-  // }
-  // getArtist()
 
   return (
     <div className="release-page">
-      <h3>Artist:</h3>
+      {hasRelease ? <img src={release.images[0].uri} /> : <p>Loading</p>}
+      {/* <img src={release.images[0].uri} /> */}
       {hasRelease ? (
-        release.artists.map((artist) => (
-          <div key={artist.id}>{artist.name}</div>
-        ))
+        <h3>Artist: {release.artists[0].name} </h3>
       ) : (
-        <div>loading</div>
+        <p>Loading</p>
       )}
-      <h3>Title: {release.title}</h3>
+      {hasRelease ? <h3>Title: {release.title}</h3> : <p>Loading</p>}
+      {hasRelease ? <h4>{release.labels[0].name}</h4> : <p>Loading</p>}
+      <h4>Tracklist:</h4>
+      <div className="tracklist">
+        {Tracklist.map((track) => (
+          <p>
+            {track.position}. {track.title} {track.duration}
+          </p>
+        ))}
+      </div>
     </div>
   )
 }
