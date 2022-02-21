@@ -36,22 +36,28 @@ function ReleasePage(props) {
 
   return (
     <div className="release-page">
-      <div className="image-block">
-        {hasRelease ? <img src={release.images[0].uri} /> : <p>Loading</p>}
-      </div>
-      <div className="info-block">
-        {hasRelease ? <h3>{release.artists[0].name} </h3> : <p>Loading</p>}
-        {hasRelease ? <h4>{release.title}</h4> : <p>Loading</p>}
-        {hasRelease ? <h5>{release.labels[0].name}</h5> : <p>Loading</p>}
-      </div>
-      <div className="track-block">
-        <h4>Tracklist:</h4>
-        <div className="tracklist">
-          {Tracklist.map((track) => (
-            <p>
-              {track.position}. {track.title} {track.duration}
-            </p>
-          ))}
+      <div className="grid">
+        <div className="left-grid">
+          <div className="image-block">
+            {hasRelease ? <img src={release.images[0].uri} /> : <p>Loading</p>}
+          </div>
+          <div className="info-block">
+            {hasRelease ? <h3>{release.artists[0].name} </h3> : <p>Loading</p>}
+            {hasRelease ? <h4>{release.title}</h4> : <p>Loading</p>}
+            {hasRelease ? <h5>{release.labels[0].name}</h5> : <p>Loading</p>}
+          </div>
+        </div>
+        <div className="right-grid">
+          <div className="track-block">
+            <h4>Tracklist:</h4>
+            <div className="tracklist">
+              {Tracklist.map((track) => (
+                <p>
+                  {track.position}. {track.title} {track.duration}
+                </p>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       <div className="video-block">
