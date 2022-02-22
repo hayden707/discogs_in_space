@@ -33,7 +33,7 @@ function ArtistPage(props) {
     >
       <div>
         <h1 className="fixed flex justify-center items-center ml-48 mt-24 text-6xl font-extrabold">
-          Releases
+          RELEASES
         </h1>
       </div>
       <div className="flex justify-center items-center mt-8">
