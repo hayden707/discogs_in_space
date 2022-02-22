@@ -20,7 +20,10 @@ function Search() {
   }
 
   return (
-    <div className="search-component">
+    <div
+      className="search-component"
+      className="min-h-screen bg-lime-100 flex justify-center items-center"
+    >
       {emptySearch ? (
         <div>
           <form
@@ -31,9 +34,12 @@ function Search() {
           >
             <input
               className="search-input"
+              className="bg-pink-200 rounded px-2 py-1"
               onChange={(e) => setSearch(e.target.value)}
             ></input>
-            <button>Search</button>
+            <button className="rounded border-2  px-3 bg-violet-400 ml-2">
+              Search
+            </button>
             <p>Search by ARTIST NAME</p>
           </form>
         </div>

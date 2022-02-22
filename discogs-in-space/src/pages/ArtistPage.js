@@ -27,8 +27,18 @@ function ArtistPage(props) {
   }, [])
 
   return (
-    <div className="artist-page">
-      <ReleaseCard releases={releases} />
+    <div
+      className="artist-page"
+      className="min-h-screen bg-lime-100 grid grid-cols-2"
+    >
+      <div>
+        <h1 className="fixed flex justify-center items-center ml-48 mt-24 text-6xl font-extrabold">
+          Releases
+        </h1>
+      </div>
+      <div className="flex justify-center items-center mt-8">
+        <ReleaseCard releases={releases} />
+      </div>
     </div>
   )
 }
