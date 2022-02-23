@@ -26,6 +26,10 @@ function Search() {
     >
       {emptySearch ? (
         <div>
+          <img
+            className="h-60 mb-14 animate-bounce"
+            src="https://i.imgur.com/asZcoDR.png"
+          />
           <form
             className="search-form"
             onSubmit={(e) => {
@@ -35,12 +39,13 @@ function Search() {
             <input
               className="search-input"
               className="bg-pink-200 rounded-2xl px-2 py-1"
+              placeholder="Search By Artist Name"
               onChange={(e) => setSearch(e.target.value)}
             ></input>
             <button className="rounded-2xl border-2  px-3 bg-violet-400 ml-2 text-white font-bold">
               Search
             </button>
-            <p>Search by ARTIST NAME</p>
+            {/* <p className="font-bold mt-3">Search by ARTIST NAME</p> */}
           </form>
         </div>
       ) : (

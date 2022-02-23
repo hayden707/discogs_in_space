@@ -32,9 +32,13 @@ function ArtistPage(props) {
       className="min-h-screen bg-lime-100 grid grid-cols-2"
     >
       <div>
-        <h1 className="fixed flex justify-center items-center ml-48 mt-24 text-6xl font-extrabold">
+        <h1 className="fixed flex justify-center items-center ml-48 mt-24 text-6xl font-extrabold animate-bounce">
           RELEASES
         </h1>
+        <img
+          className="h-24 fixed ml-64 mt-48 animate-bounce"
+          src="https://i.imgur.com/PoTDRAr.png"
+        />
       </div>
       <div className="flex justify-center items-center mt-8">
         <ReleaseCard releases={releases} />

@@ -35,20 +35,30 @@ function ReleasePage(props) {
   }, [])
 
   return (
-    <div className="release-page">
-      <div className="grid">
-        <div className="left-grid">
+    <div className="release-page" className="min-h-screen bg-lime-100">
+      <div className="grid grid-cols-2">
+        <div className="left-grid"></div>
+        {hasRelease ? (
+          <h1 className="fixed flex justify-center items-center ml-32 mt-24 text-6xl font-extrabold animate-bounce">
+            {release.artists[0].name}
+          </h1>
+        ) : (
+          <div></div>
+        )}
+        <div className="right-grid" className="mr-6 mt-6">
           <div className="image-block">
             {hasRelease ? <img src={release.images[0].uri} /> : <p>Loading</p>}
           </div>
-          <div className="info-block">
-            {hasRelease ? <h3>{release.artists[0].name} </h3> : <p>Loading</p>}
-            {hasRelease ? <h4>{release.title}</h4> : <p>Loading</p>}
-            {hasRelease ? <h5>{release.labels[0].name}</h5> : <p>Loading</p>}
+          <div className="info-block" className="mt-4">
+            {hasRelease ? <h3>{release.artists[0].name} </h3> : <div></div>}
+            {hasRelease ? <h4>{release.title}</h4> : <div></div>}
+            {hasRelease ? (
+              <h5>Label: {release.labels[0].name}</h5>
+            ) : (
+              <div></div>
+            )}
           </div>
-        </div>
-        <div className="right-grid">
-          <div className="track-block">
+          <div className="track-block" className="mt-4">
             <h4>Tracklist:</h4>
             <div className="tracklist">
               {Tracklist.map((track) => (
@@ -56,15 +66,16 @@ function ReleasePage(props) {
                   {track.position}. {track.title} {track.duration}
                 </p>
               ))}
+              <div className="video-block" className="mt-4">
+                <h4>YouTube Links:</h4>
+                <div className="vide-map">
+                  {video.map((video) => (
+                    <a href={video.uri}>{video.title}</a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="video-block">
-        <div className="vide-map">
-          {video.map((video) => (
-            <a href={video.uri}>{video.title}</a>
-          ))}
         </div>
       </div>
     </div>
