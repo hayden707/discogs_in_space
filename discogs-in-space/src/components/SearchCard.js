@@ -6,10 +6,13 @@ function SearchCard(props) {
   return (
     <div className="search-card-component">
       {props.searchResults.map((album) => (
-        <div key={album.id} className="album-card" className="mt-4">
+        <div
+          key={album.id}
+          // className="album-card"
+          className="mt-4"
+        >
           <NavLink to={`/artist/${album.id}`}>
-            {album.cover_image ==
-            'https://s.discogs.com/f2cce83e490879bf4de6f88cfb2b28879e42ed61/images/spacer.gif' ? (
+            {album.cover_image.endsWith('.gif') ? (
               <img
                 className="h-12 object-contain content-center m-auto hover:opacity-50 "
                 src="https://i.imgur.com/6RUdaU8.png"

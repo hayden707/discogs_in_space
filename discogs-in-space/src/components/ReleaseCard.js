@@ -5,7 +5,7 @@ import './ReleaseCard.css'
 function ReleaseCard(props) {
   return (
     <div
-      className="release-card"
+      // className="release-card"
       className="flex-row justify-center items-center"
     >
       {props.releases.map((album) => (
