@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { key, secret } from '../globals'
+// import { key, secret } from '../globals'
 import React, { useState } from 'react'
 import SearchCard from './SearchCard'
 import './Search.css'
@@ -21,32 +21,34 @@ function Search() {
 
   return (
     <div
-      className="search-component"
-      className="min-h-screen bg-lime-100 flex justify-center items-center"
+      // className="search-component"
+      className="min-h-screen bg-lime-100"
     >
       {emptySearch ? (
-        <div className="">
-          <img
-            className="h-60 mb-14 animate-bounce"
-            src="https://i.imgur.com/asZcoDR.png"
-          />
-          <form
-            className="search-form"
-            onSubmit={(e) => {
-              handleSubmit(e)
-            }}
-          >
-            <input
-              className="search-input"
-              className="bg-white rounded-2xl px-2 py-1 border-2 border-black"
-              placeholder="Search By Artist Name"
-              onChange={(e) => setSearch(e.target.value)}
-            ></input>
-            <button className="rounded-2xl border-2  px-3 bg-black ml-2 text-white font-bold">
-              Search
-            </button>
-            {/* <p className="font-bold mt-3">Search by ARTIST NAME</p> */}
-          </form>
+        <div className="min-h-screen bg-lime-100 flex justify-center items-center">
+          <div>
+            <img
+              className="h-60 mb-14 animate-bounce"
+              src="https://i.imgur.com/asZcoDR.png"
+            />
+            <form
+              className="search-form"
+              onSubmit={(e) => {
+                handleSubmit(e)
+              }}
+            >
+              <input
+                // className="search-input"
+                className="bg-white rounded-2xl px-2 py-1 border-2 border-black"
+                placeholder="Search By Artist Name"
+                onChange={(e) => setSearch(e.target.value)}
+              ></input>
+              <button className="rounded-2xl border-2  px-3 bg-black ml-2 text-white font-bold">
+                Search
+              </button>
+              {/* <p className="font-bold mt-3">Search by ARTIST NAME</p> */}
+            </form>
+          </div>
         </div>
       ) : (
         <div className="grid grid-cols-2">
@@ -55,7 +57,10 @@ function Search() {
               RESULTS
             </h1>
           </div>
-          <div className="grid-right" className="mt-4">
+          <div
+            // className="grid-right"
+            className="mt-4"
+          >
             <SearchCard searchResults={searchResults} />
           </div>
         </div>
