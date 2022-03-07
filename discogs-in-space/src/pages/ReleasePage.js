@@ -35,7 +35,10 @@ function ReleasePage(props) {
   }, [])
 
   return (
-    <div className="release-page" className="min-h-screen bg-lime-100">
+    <div
+      // className="release-page"
+      className="min-h-screen bg-lime-100"
+    >
       <div className="grid grid-cols-2">
         <div className="left-grid"></div>
         {hasRelease ? (
@@ -45,11 +48,21 @@ function ReleasePage(props) {
         ) : (
           <div></div>
         )}
-        <div className="right-grid" className="mr-6 mt-6">
+        <div
+          // className="right-grid"
+          className="mr-6 mt-6"
+        >
           <div className="image-block">
-            {hasRelease ? <img src={release.images[0].uri} /> : <p>Loading</p>}
+            {hasRelease ? (
+              <img alt="album cover" src={release.images[0].uri} />
+            ) : (
+              <p>Loading</p>
+            )}
           </div>
-          <div className="info-block" className="mt-4">
+          <div
+            // className="info-block"
+            className="mt-4"
+          >
             {hasRelease ? <h3>{release.artists[0].name} </h3> : <div></div>}
             {hasRelease ? <h4>{release.title}</h4> : <div></div>}
             {hasRelease ? (
@@ -58,7 +71,10 @@ function ReleasePage(props) {
               <div></div>
             )}
           </div>
-          <div className="track-block" className="mt-4">
+          <div
+            // className="track-block"
+            className="mt-4"
+          >
             <h4>Tracklist:</h4>
             <div className="tracklist">
               {Tracklist.map((track) => (
@@ -66,7 +82,10 @@ function ReleasePage(props) {
                   {track.position}. {track.title} {track.duration}
                 </p>
               ))}
-              <div className="video-block" className="mt-4">
+              <div
+                // className="video-block"
+                className="mt-4"
+              >
                 <h4>YouTube Links:</h4>
                 <div className="vide-map">
                   {video.map((video) => (
