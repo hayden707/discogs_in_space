@@ -28,7 +28,7 @@ function ArtistPage(props) {
 
   return (
     <div
-      className="artist-page"
+      // className="artist-page"
       className="min-h-screen bg-lime-100 grid grid-cols-2"
     >
       <div>

@@ -56,6 +56,10 @@ function Search() {
             <h1 className="fixed flex justify-center items-center ml-32 mt-24 text-6xl font-extrabold animate-bounce">
               RESULTS
             </h1>
+            <img
+              className="h-24 fixed ml-48 mt-48 animate-bounce"
+              src="https://i.imgur.com/PoTDRAr.png"
+            />
           </div>
           <div
             // className="grid-right"
