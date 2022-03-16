@@ -48,6 +48,14 @@ function ReleasePage(props) {
         ) : (
           <div></div>
         )}
+        {hasRelease ? (
+          <img
+            className="h-24 fixed ml-60 mt-48 animate-bounce"
+            src="https://i.imgur.com/PoTDRAr.png"
+          />
+        ) : (
+          <div></div>
+        )}
         <div
           // className="right-grid"
           className="mr-6 mt-6"
