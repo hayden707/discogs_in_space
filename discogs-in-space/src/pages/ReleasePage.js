@@ -7,8 +7,8 @@ import './ReleasePage.css'
 function ReleasePage(props) {
   // const [artist, setArtist] = useState(null)
   const [release, setRelease] = useState([])
-  const [video, setVideo] = useState([])
-  const [hasVideo, setHasVideo] = useState(false)
+  // const [video, setVideo] = useState([])
+  // const [hasVideo, setHasVideo] = useState(false)
   const [hasRelease, setHasRelease] = useState(false)
   const [Tracklist, setTracklist] = useState([])
 
@@ -16,20 +16,24 @@ function ReleasePage(props) {
 
   useEffect(async () => {
     async function findRelease() {
-      const res = await axios.get(
-        `https://api.discogs.com/releases/${release_id}`,
-        {
-          headers: {
-            Authorization: `Discogs token=${process.env.REACT_APP_TOKEN}`
+      try {
+        const res = await axios.get(
+          `https://api.discogs.com/masters/${release_id}`,
+          {
+            headers: {
+              Authorization: `Discogs token=${process.env.REACT_APP_TOKEN}`
+            }
           }
-        }
-      )
-      setRelease(res.data)
-      console.log(res.data, 'releases')
-      setVideo(res.data.videos)
-      setHasVideo(true)
-      setHasRelease(true)
-      setTracklist(res.data.tracklist)
+        )
+        setRelease(res.data)
+        console.log(res.data, 'releases')
+        // setVideo(res.data.videos)
+        // setHasVideo(true)
+        setHasRelease(true)
+        setTracklist(res.data.tracklist)
+      } catch (error) {
+        throw error
+      }
     }
     findRelease()
   }, [])
@@ -46,7 +50,7 @@ function ReleasePage(props) {
             {release.artists[0].name}
           </h1>
         ) : (
-          <div></div>
+          <div>RELEASE</div>
         )}
         {hasRelease ? (
           <img
@@ -62,28 +66,32 @@ function ReleasePage(props) {
         >
           <div className="image-block">
             {hasRelease ? (
-              <img alt="album cover" src={release.images[0].uri} />
+              <img
+                alt="album cover"
+                className="max-h-96 mx-auto"
+                src={release.images[0].uri}
+              />
             ) : (
               <p>Loading</p>
             )}
           </div>
           <div
             // className="info-block"
-            className="mt-4"
+            className="mt-4 font-bold"
           >
             {hasRelease ? <h3>{release.artists[0].name} </h3> : <div></div>}
             {hasRelease ? <h4>{release.title}</h4> : <div></div>}
-            {hasRelease ? (
+            {/* {hasRelease ? (
               <h5>Label: {release.labels[0].name}</h5>
             ) : (
               <div></div>
-            )}
+            )} */}
           </div>
           <div
             // className="track-block"
-            className="mt-4"
+            className="mt-4 "
           >
-            <h4>Tracklist:</h4>
+            <h4 className="font-bold">Tracklist:</h4>
             <div className="tracklist">
               {Tracklist.map((track) => (
                 <p>
@@ -94,12 +102,12 @@ function ReleasePage(props) {
                 // className="video-block"
                 className="mt-4"
               >
-                <h4>YouTube Links:</h4>
-                <div className="vide-map">
+                <h4 className="font-bold">YouTube Links:</h4>
+                {/* <div className="video-map flex flex-col justify-center items-center">
                   {video.map((video) => (
                     <a href={video.uri}>{video.title}</a>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

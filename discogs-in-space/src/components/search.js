@@ -48,6 +48,9 @@ function Search() {
               </button>
               {/* <p className="font-bold mt-3">Search by ARTIST NAME</p> */}
             </form>
+            <p className="mt-4">
+              Search for a release by <b>ARTIST NAME</b>
+            </p>
           </div>
         </div>
       ) : (

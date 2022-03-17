@@ -16,7 +16,8 @@ function ReleaseCard(props) {
         >
           {/* <img src={album.cover_image} alt={`${album.title} cover`} /> */}
           {/* <p>Type: {album.type}</p> */}
-          <NavLink to={`/release/${album.main_release}`}>
+
+          <NavLink to={`/release/${album.id}`}>
             <img className="mx-auto hover:opacity-50" src={album.thumb} />
             <h3>{album.title}</h3>
             <h4>{album.label}</h4>
