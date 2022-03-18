@@ -29,14 +29,14 @@ function ArtistPage(props) {
   return (
     <div
       // className="artist-page"
-      className="min-h-screen bg-lime-100 grid grid-cols-2"
+      className="min-h-screen bg-lime-100 md:grid md:grid-cols-2"
     >
-      <div>
-        <h1 className="fixed flex justify-center items-center ml-48 mt-24 text-6xl font-extrabold animate-bounce">
-          RELEASES
+      <div className="pt-8">
+        <h1 className="md:fixed flex justify-center items-center md:ml-20 md:mt-8 lg:ml-48 lg:mt-24 text-6xl font-extrabold animate-bounce">
+          Releases
         </h1>
         <img
-          className="h-24 fixed ml-64 mt-48 animate-bounce"
+          className="h-24 mt-4 md:fixed md:ml-32 md:mt-28 lg:ml-64 lg:mt-48 mx-auto animate-bounce"
           src="https://i.imgur.com/PoTDRAr.png"
         />
       </div>

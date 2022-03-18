@@ -7,8 +7,8 @@ import './ReleasePage.css'
 function ReleasePage(props) {
   // const [artist, setArtist] = useState(null)
   const [release, setRelease] = useState([])
-  // const [video, setVideo] = useState([])
-  // const [hasVideo, setHasVideo] = useState(false)
+  const [video, setVideo] = useState([])
+  const [hasVideo, setHasVideo] = useState(false)
   const [hasRelease, setHasRelease] = useState(false)
   const [Tracklist, setTracklist] = useState([])
 
@@ -27,8 +27,9 @@ function ReleasePage(props) {
         )
         setRelease(res.data)
         console.log(res.data, 'releases')
-        // setVideo(res.data.videos)
-        // setHasVideo(true)
+
+        setVideo(res.data.videos)
+        setHasVideo(true)
         setHasRelease(true)
         setTracklist(res.data.tracklist)
       } catch (error) {
@@ -43,10 +44,10 @@ function ReleasePage(props) {
       // className="release-page"
       className="min-h-screen bg-lime-100"
     >
-      <div className="grid grid-cols-2">
-        <div className="left-grid"></div>
+      <div className="md:grid md:grid-cols-2">
+        <div className="left-grid pt-8"></div>
         {hasRelease ? (
-          <h1 className="fixed flex justify-center items-center ml-32 mt-24 text-6xl font-extrabold animate-bounce">
+          <h1 className="md:fixed flex justify-center items-center md:ml-8 md:mt-8 lg:ml-32 lg:mt-24 text-6xl font-extrabold animate-bounce">
             {release.artists[0].name}
           </h1>
         ) : (
@@ -54,7 +55,7 @@ function ReleasePage(props) {
         )}
         {hasRelease ? (
           <img
-            className="h-24 fixed ml-60 mt-48 animate-bounce"
+            className="h-24 md:fixed md:ml-32 md:mt-28 lg:ml-60 lg:mt-48 animate-bounce mx-auto mt-4"
             src="https://i.imgur.com/PoTDRAr.png"
           />
         ) : (
@@ -103,6 +104,16 @@ function ReleasePage(props) {
                 className="mt-4"
               >
                 <h4 className="font-bold">YouTube Links:</h4>
+                {video ? (
+                  <div className="video-map flex flex-col justify-center items-center">
+                    {video.map((video) => (
+                      <a href={video.uri}>{video.title}</a>
+                    ))}
+                  </div>
+                ) : (
+                  <p>None Available</p>
+                )}
+
                 {/* <div className="video-map flex flex-col justify-center items-center">
                   {video.map((video) => (
                     <a href={video.uri}>{video.title}</a>

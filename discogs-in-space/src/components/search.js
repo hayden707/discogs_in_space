@@ -54,13 +54,13 @@ function Search() {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-2">
-          <div className="grid-left">
-            <h1 className="fixed flex justify-center items-center ml-32 mt-24 text-6xl font-extrabold animate-bounce">
+        <div className="md:grid md:grid-cols-2">
+          <div className="grid-left pt-8">
+            <h1 className="md:marker md:fixed flex justify-center items-center md:ml-32 md:mt-24 text-6xl font-extrabold animate-bounce">
               RESULTS
             </h1>
             <img
-              className="h-24 fixed ml-48 mt-48 animate-bounce"
+              className="h-24 mx-auto md:fixed md:ml-48 md:mt-48 animate-bounce"
               src="https://i.imgur.com/PoTDRAr.png"
             />
           </div>
