@@ -19,7 +19,7 @@ function SearchCard(props) {
               />
             ) : (
               <img
-                className="object-contain h-32 hover:opacity-50 mx-auto"
+                className="object-contain h-32 mt-4 hover:opacity-50 mx-auto"
                 src={album.cover_image}
                 alt={`${album.title} cover`}
               />
