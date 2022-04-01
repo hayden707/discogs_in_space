@@ -51,7 +51,7 @@ function ReleasePage(props) {
             {release.artists[0].name}
           </h1>
         ) : (
-          <div>RELEASE</div>
+          <div></div>
         )}
         {hasRelease ? (
           <img
