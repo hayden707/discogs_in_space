@@ -8,7 +8,8 @@ function About() {
         Crate Dig is a simple app that repackages the Discogs search function in
         a new user interface, built as a personal project to practice with
         React.js, 3rd party API integration, and Tailwind.css. The GitHub repo
-        for the project can be found HERE.
+        for the project can be found{' '}
+        <a href="https://github.com/hayden707/discogs_in_space">HERE</a>.
       </p>
     </div>
   )
