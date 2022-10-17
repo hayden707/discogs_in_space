@@ -12,7 +12,6 @@ export default function Header() {
   }
 
   const menuTrue = () => {
-    c
     setMenu(true)
     document.body.style.overflow = 'visible'
   }
