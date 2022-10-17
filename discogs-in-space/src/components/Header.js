@@ -13,7 +13,7 @@ export default function Header() {
 
   const menuTrue = () => {
     setMenu(true)
-    document.body.style.overflow = 'unseex'
+    document.body.style.overflow = 'unseen'
   }
 
   return (
